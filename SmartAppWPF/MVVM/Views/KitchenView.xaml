@@ -17,16 +17,21 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Text="{Binding Title}" />
             
-            <ItemsControl Grid.Row="1" x:Name="deviceTileListView" ItemsSource="{Binding DeviceItems}">
+            <ItemsControl Grid.Row="1" Grid.Column="2" x:Name="deviceTileListView" ItemsSource="{Binding Devices}">
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <components:TileComponent 
+                        <components:TileComponent
                             DeviceName="{Binding DeviceName}" 
                             DeviceType="{Binding DeviceType}"
                             IconActive="{Binding IconActive}"

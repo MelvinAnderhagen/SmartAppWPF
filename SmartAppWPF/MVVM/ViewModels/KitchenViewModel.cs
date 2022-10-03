@@ -13,7 +13,7 @@ namespace SmartAppWPF.MVVM.ViewModels
     internal class KitchenViewModel
     {
         private DispatcherTimer timer;
-        private ObservableCollection<DeviceItem> _devices; //obeservablecollection används för att kunna refresha Devices
+        private ObservableCollection<DeviceItem> _devices;
         private readonly RegistryManager registryManager = RegistryManager
             .CreateFromConnectionString("HostName=TestIotV10.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=65IG+I38my66zPsmGkxx4eCzpW6hRE62KP1Ku2KxL/I=");
 
