@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartAppWPF", "SmartAppWPF\SmartAppWPF.csproj", "{8796E861-C382-4427-A46D-2EDF4725052B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctions", "AzureFunctions\AzureFunctions.csproj", "{CF5DCB5E-1BF8-4B88-B7D1-29825CA6A1A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions", "AzureFunctions\AzureFunctions.csproj", "{CF5DCB5E-1BF8-4B88-B7D1-29825CA6A1A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDeviceApp", "WPFDeviceApp\WPFDeviceApp.csproj", "{94B91954-931D-437F-8C4D-C4C1DE52F401}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFDeviceApp", "WPFDeviceApp\WPFDeviceApp.csproj", "{94B91954-931D-437F-8C4D-C4C1DE52F401}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
