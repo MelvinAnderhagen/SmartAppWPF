@@ -29,7 +29,7 @@ namespace WPFDeviceApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string _connect_url = "http://localhost:7138/api/devices/connect";
+        private readonly string _connect_url = "http://localhost:7170/api/devices/connect";
         private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\ander\\source\repos\\SmartAppWPF\\WPFDeviceApp\\Data\\DeviceDB.mdf;Integrated Security=True;Connect Timeout=30";
         private DeviceClient _deviceClient;
         private DeviceInfo deviceInfo;
