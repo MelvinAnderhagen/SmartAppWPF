@@ -30,7 +30,7 @@ namespace WPFDeviceApp
     public partial class MainWindow : Window
     {
         private readonly string _connect_url = "http://localhost:7170/api/devices/connect";
-        private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\ander\\source\repos\\SmartAppWPF\\WPFDeviceApp\\Data\\DeviceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ander\\source\\repos\\SmartAppWPF\\WPFDeviceApp\\Data\\DeviceDB.mdf;Integrated Security=True;Connect Timeout=30";
         private DeviceClient _deviceClient;
         private DeviceInfo deviceInfo;
 
@@ -51,7 +51,15 @@ namespace WPFDeviceApp
         {
             tbStateMessage.Text = "Initializing Device. Please wait...";
 
+            try 
+            {
+            using IDbConnection conn2 = new SqlConnection(_connectionString);
+
+            }
+            catch (Exception e){ tbStateMessage.Text = e.Message; }
+
             using IDbConnection conn = new SqlConnection(_connectionString);
+
             _deviceId = await conn.QueryFirstOrDefaultAsync<string>("SELECT DeviceId FROM DeviceInfo");
             if (string.IsNullOrEmpty(_deviceId))
             {
