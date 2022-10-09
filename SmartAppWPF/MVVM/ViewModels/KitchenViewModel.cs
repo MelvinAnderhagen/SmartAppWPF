@@ -80,9 +80,9 @@ namespace SmartAppWPF.MVVM.ViewModels
                             DeviceId = twin.DeviceId
                         };
 
-                        try { _device.DeviceName = twin.Properties.Reported["DeviceName"]; }
+                        try { _device.DeviceName = twin.Properties.Reported["deviceName"]; }
                         catch { _device.DeviceName = twin.DeviceId; }
-                        try { _device.DeviceType = twin.Properties.Reported["DeviceType"]; }
+                        try { _device.DeviceType = twin.Properties.Reported["deviceType"]; }
                         catch { }
 
 

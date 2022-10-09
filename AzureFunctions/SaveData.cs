@@ -17,7 +17,7 @@ namespace AzureFunctions
         [FunctionName("SaveData")]
         public void Run(
             [IoTHubTrigger("messages/events", Connection = "IotHubEndpoint", ConsumerGroup = "azurefunction")] EventData message,
-            [CosmosDB(databaseName: "NET", collectionName: "Data", CreateIfNotExists = true, ConnectionStringSetting = "CosmosDB")] out dynamic cosmos,
+            [CosmosDB(databaseName: "DeviceInfo", collectionName: "Data", CreateIfNotExists = true, ConnectionStringSetting = "CosmosDB")] out dynamic cosmos,
             ILogger log)
         {
             try

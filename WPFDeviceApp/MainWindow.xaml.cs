@@ -29,7 +29,7 @@ namespace WPFDeviceApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string _connect_url = "https://kyhtestfunctionapp.azurewebsites.net";
+        private readonly string _connect_url = "http://localhost:7170/api/devices/connect";
         private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ander\\source\\repos\\SmartAppWPF\\WPFDeviceApp\\Data\\DeviceDB.mdf;Integrated Security=True;Connect Timeout=30";
         private DeviceClient _deviceClient;
         private DeviceInfo deviceInfo;
@@ -65,7 +65,7 @@ namespace WPFDeviceApp
             {
                 tbStateMessage.Text = "Generating new DeviceID";
                 _deviceId = Guid.NewGuid().ToString();
-                await conn.ExecuteAsync("INSERT INTO DeviceInfo (DeviceId,DeviceName,DeviceType,Location,Owner) VALUES (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Device", DeviceType = "light", Location = "kitchen", Owner = "Hans Mattin-Lassei" });
+                await conn.ExecuteAsync("INSERT INTO DeviceInfo (DeviceId,DeviceName,DeviceType,Location,Owner) VALUES (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Fan Device", DeviceType = "fan", Location = "Kitchen", Owner = "Melvin Anderhagen" });
             }
 
             var device_ConnectionString = await conn.QueryFirstOrDefaultAsync<string>("SELECT ConnectionString FROM DeviceInfo WHERE DeviceId = @DeviceId", new { DeviceId = _deviceId });
