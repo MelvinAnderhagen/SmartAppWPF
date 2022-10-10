@@ -1,5 +1,6 @@
 ﻿using Microsoft.Azure.Devices;
 using SmartAppWPF.MVVM.Models;
+using SmartAppWPF.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,21 +15,20 @@ namespace SmartAppWPF.MVVM.ViewModels
     {
         private DispatcherTimer timer;
         private ObservableCollection<DeviceItem> _devices;
-
+        private IWeatherService _weatherService;
         private readonly RegistryManager registryManager = RegistryManager
             .CreateFromConnectionString("HostName=TestIotV10.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=65IG+I38my66zPsmGkxx4eCzpW6hRE62KP1Ku2KxL/I=");
 
         public KitchenViewModel()
         {
             _devices = new ObservableCollection<DeviceItem>();
-
+            _weatherService = new WeatherService();
             PopulateDeviceListsAsync().ConfigureAwait(false);
             setInterval(TimeSpan.FromSeconds(5));
+
         }
 
         public string Title { get; set; } = "Kitchen";
-        public string Temperature { get; set; } = "26 °C";
-        public string Humidity { get; set; } = "21 %";
 
         public IEnumerable<DeviceItem> Devices => _devices;
 
@@ -98,6 +98,13 @@ namespace SmartAppWPF.MVVM.ViewModels
                             case "light":
                                 _device.IconActive = "\uf672";
                                 _device.IconInActive = "\uf0eb";
+                                _device.StateActive = "ON";
+                                _device.StateInActive = "OFF";
+                                break;
+
+                            case "temperature":
+                                _device.IconActive = "\uf2c8";
+                                _device.IconInActive = "\uf2cb";
                                 _device.StateActive = "ON";
                                 _device.StateInActive = "OFF";
                                 break;

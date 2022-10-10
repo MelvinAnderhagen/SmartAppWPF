@@ -25,6 +25,8 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
+            <components:WeatherComponent Grid.Row="0" Grid.Column="2"/>
+
             <TextBlock Grid.Row="0" Text="{Binding Title}" />
             
             <ItemsControl Grid.Row="1" Grid.Column="2" x:Name="deviceTileListView" ItemsSource="{Binding Devices}">
