@@ -10,7 +10,7 @@
         <TextBlock Text="{Binding CurrentWeatherCondition}" FontSize="23" FontFamily="{StaticResource FontAwesome-Regular}" Foreground="White"/>
         <TextBlock FontSize="20" Foreground="White">
             <Run Text="{Binding CurrentTemperature}"/>
-            <Run Text="C"/>
+            <Run Text="ºC"/>
         </TextBlock>
     </StackPanel>
 </UserControl>
